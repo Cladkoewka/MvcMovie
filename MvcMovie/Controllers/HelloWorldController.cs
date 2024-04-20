@@ -6,9 +6,9 @@ namespace MvcMovie.Controllers
     {
         // 
         // GET: /HelloWorld/
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
         // 
         // GET: /HelloWorld/Welcome/ 
@@ -17,9 +17,11 @@ namespace MvcMovie.Controllers
             return "This is the Welcome action method...";
         }
 
-        public string Test(string name, int num = 1)
+        public IActionResult Test(string name, int num = 1)
         {
-            return $"{name} -------  {num * 10}";
+            ViewData["Message"] = "Hello " + name;
+            ViewData["num"] = num;
+            return View();
         }
 
     }
